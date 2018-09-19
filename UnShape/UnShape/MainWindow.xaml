@@ -1,0 +1,43 @@
+﻿<Window x:Class="UnShape.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UnShape" 
+        mc:Ignorable="d" Background="Transparent" WindowStyle="None" AllowsTransparency="True"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Path MouseLeftButtonDown="Path_MouseLeftButtonDown" Data="M 0,0 C 10,300 300,-160 300,100Z" Fill="Red" Stroke="Black" StrokeThickness="5">
+            <Path.Triggers>
+                <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Duration="0:0:0.5" Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Color)" To="Blue"></ColorAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Duration="0:0:0.5" Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Color)" To="Red"></ColorAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Mouse.MouseDown">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Duration="0:0:0.5" Storyboard.TargetProperty="(Path.Stroke).(SolidColorBrush.Color)" To="Yellow"></ColorAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Mouse.MouseUp">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Duration="0:0:0.5" Storyboard.TargetProperty="(Path.Stroke).(SolidColorBrush.Color)" To="Black"></ColorAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Path.Triggers>
+        </Path>
+    </Grid>
+</Window>
